@@ -334,7 +334,7 @@ const Index = () => {
 
   // Execute the active snippet
   const executeSnippet = () => {
-    if (!activeSnippet) return;
+    if (!currentCode || currentCode.trim() === '') return;
 
     // Clear previous output
     setConsoleOutput([]);
@@ -380,7 +380,7 @@ const Index = () => {
       };
 
       // Execute the code
-      const result = new Function(activeSnippet.code)();
+      const result = new Function(currentCode)();
 
       // If the function returns a value, log it
       if (result !== undefined) {
