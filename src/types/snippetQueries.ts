@@ -8,7 +8,7 @@ export interface UseSnippetsQueryResult {
   error: Error | null;
   localSnippets: string[];
   createSnippet: () => Snippet;
-  updateSnippet: (id: string, updates: Partial<Snippet>) => Promise<void>;
+  updateSnippet: (id: string, updates: Partial<Snippet>) => Promise<Snippet>;
   saveNewSnippet: (snippet: Snippet) => Promise<boolean>;
   deleteSnippet: (id: string) => Promise<void>;
   migrateLocalSnippetsToDb: () => Promise<boolean>;

@@ -196,7 +196,7 @@ const Index = () => {
       const updatedSnippet = await updateSnippet(id, fullUpdates);
       
       // If we're updating the active snippet, update the local state too
-      if (activeSnippet?.id === id && updatedSnippet) {
+      if (activeSnippet?.id === id) {
         setActiveSnippet(updatedSnippet);
         
         // If this was a new unsaved snippet and we just updated it

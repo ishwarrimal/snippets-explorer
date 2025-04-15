@@ -279,8 +279,9 @@ export function useSnippetsQuery(): UseSnippetsQueryResult {
     error: error as Error | null,
     localSnippets,
     createSnippet,
-    updateSnippet: (id: string, updates: Partial<Snippet>) => 
-      updateSnippetMutation.mutateAsync({ id, updates }),
+    updateSnippet: async (id: string, updates: Partial<Snippet>) => {
+      return await updateSnippetMutation.mutateAsync({ id, updates });
+    },
     saveNewSnippet: (snippet: Snippet) => 
       saveNewSnippetMutation.mutateAsync(snippet),
     deleteSnippet: (id: string) => 
