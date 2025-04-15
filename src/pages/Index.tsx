@@ -10,7 +10,7 @@ import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { LogIn, LogOut, Cloud, AlertTriangle } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useSnippets } from "@/hooks/useSnippets";
+import { useSnippetsQuery } from "@/hooks/useSnippetsQuery";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Dialog,
@@ -33,7 +33,7 @@ const Index = () => {
     saveNewSnippet, 
     deleteSnippet,
     migrateLocalSnippetsToDb
-  } = useSnippets();
+  } = useSnippetsQuery();
   const [activeSnippet, setActiveSnippet] = useState<Snippet | null>(null);
   const [isNewUnsavedSnippet, setIsNewUnsavedSnippet] = useState(false);
   const [showSaveDialog, setShowSaveDialog] = useState(false);
