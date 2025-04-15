@@ -274,10 +274,6 @@ const Index = () => {
       // If user is logged in and this is a local-only snippet, save to DB
       if (user && localSnippets.includes(activeSnippet.id)) {
         await saveNewSnippet(updatedSnippet);
-      } else if (isNewUnsavedSnippet) {
-        // If it's a new unsaved snippet, save it properly
-        await saveNewSnippet(updatedSnippet);
-        setIsNewUnsavedSnippet(false);
       } else {
         // Otherwise, just update it
         // Make sure we're only updating the active snippet
@@ -285,6 +281,8 @@ const Index = () => {
           name: updatedSnippet.name,
           code: updatedSnippet.code 
         });
+        setIsNewUnsavedSnippet(false);
+
       }
       
       toast({
